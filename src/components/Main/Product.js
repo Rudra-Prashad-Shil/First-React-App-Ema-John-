@@ -1,9 +1,9 @@
 import React from 'react';
 import {ShoppingCartIcon } from '@heroicons/react/24/solid'
 
-const Product = ({item}) => {
-    console.log(item);
-    const {img,name,price,seller,ratings} = item;
+const Product = ({item, handleCart}) => {
+    // console.log(item);
+    const {id,img,name,price,seller,ratings} = item;
     return (
 
         <div className="card card-compact w-full shadow-xl border-white">
@@ -14,12 +14,13 @@ const Product = ({item}) => {
                     alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">{name}</h2> 
+                <h2 className="card-title">{name}</h2>
+                <h2>ID: {id}</h2>
                 <h3>Price: ${price}</h3>
                 <p>Manufacturer: {seller}</p>
                 <p>Rating: {ratings} star</p>
                 
-                <button className="btn btn-primary"><ShoppingCartIcon className='size-6'></ShoppingCartIcon>Add to Cart</button>
+                <button onClick={() => handleCart(item)} className="btn btn-primary"><ShoppingCartIcon className='size-6'></ShoppingCartIcon>Add to Cart</button>
             </div>
         </div>
     );
