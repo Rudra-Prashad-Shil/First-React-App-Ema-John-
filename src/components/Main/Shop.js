@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Product from './Product';
 import OrderSummary from './OrderSummary';
 import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/solid';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [showCart, setShowCart] = useState(false);
 
     useEffect(() => {
         fetch('products.json')
@@ -54,8 +56,8 @@ const Shop = () => {
     }
 
     return (
-        <div className='grid grid-cols-5'>
-            <div className='col-span-4 mx-5'>
+        <div className='grid grid-cols-12'>
+            <div className='col-span-11 ml-5'>
                 <h2 className='text-center text-sm font-semibold'>Total Available: {products.length}</h2>
                 <h3 className='text-center text-3xl font-semibold text-yellow-600'>Available items</h3>
                 <hr className='my-5 w-11/12 mx-auto'></hr>
@@ -69,7 +71,12 @@ const Shop = () => {
                     }
                 </div>
             </div>
-            <OrderSummary cart={cart}></OrderSummary>
+            <div>
+                <span onClick={() => setShowCart(!showCart)} className='fixed right-0'>{showCart ? <ArrowRightCircleIcon className='size-10 text-yellow-600' /> : <ArrowLeftCircleIcon className='size-10 text-yellow-600' />}</span>
+                <div className={`fixed duration-500 ${showCart ? 'right-0':'-right-64'} top-32`}>
+                    <OrderSummary cart={cart}></OrderSummary>
+                </div>
+            </div>
         </div>
     );
 };

@@ -24,7 +24,7 @@ const OrderSummary = ({cart}) => {
     const grandTotal = total + shipping + tax;
 
     return (
-        <div className='border-2 bg-[#FFE0B3] p-4 fixed right-0'>
+        <div className='border-2 bg-[#FFE0B3] p-4'>
             <h4 className='text-center text-xl font-semibold text-black'>Order Summary</h4>
             <div className='py-12 px-2 text-black'>
                 <p>Selected Items: {quantity}</p>
