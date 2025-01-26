@@ -3,10 +3,10 @@ import Logo from '../../images/Logo.svg'
 
 const Header = () => {
     const navlinks = <>
-        <a className='ms-8 hover:text-[#FF9900]' href='#'>Order Review</a>
-        <a className='ms-8 hover:text-[#FF9900]' href='#'>Order</a>
-        <a className='ms-8 hover:text-[#FF9900]' href='#'>Manage Order</a>
-        <a className='ms-8 hover:text-[#FF9900]' href='#'>Login</a>
+        <a className='ms-8 hover:text-[#FF9900]' href='/'>Order Review</a>
+        <a className='ms-8 hover:text-[#FF9900]' href='/'>Order</a>
+        <a className='ms-8 hover:text-[#FF9900]' href='/'>Manage Order</a>
+        <a className='ms-8 hover:text-[#FF9900]' href='/'>Login</a>
     </>
     return (
         <div className="navbar bg-[#1C2B35] text-white lg:px-20">
